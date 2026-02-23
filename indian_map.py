@@ -19,10 +19,13 @@ while len(guessed_state) <=29:
     answer_seats = screen.textinput(title=f"{len(guessed_state)}/ 29 states correct     guess the state", prompt="what's another state").title()
 
     if answer_seats =="End":
+        """
         not_guessed =[]
         for i in all_states:
             if i not in guessed_state:
-                not_guessed.append(i)
+                not_guessed.append(i)"""
+        #using list comprehension
+        not_guessed=[state for state in all_states if state not in guessed_state]
         new_data = pd.DataFrame(not_guessed)  
         new_data.to_csv("states_to_learn.csv")       
         break
